@@ -1,3 +1,68 @@
+# 设计品味技能（Taste Skill）
+
+> 篝火出品 · 收录于篝火 App 应用区。本仓库 fork 自 [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)，版权归原作者，按 MIT 许可证分发。
+
+让 AI 做网页和应用界面时有“艺术指导”，不再做出千篇一律的模板化落地页。技能名为 `design-taste-frontend`（v2）。
+
+## 能做什么
+
+- 从 20 套研究过的设计方向里随机发三套，让 AI 选一套最贴合客户的，再生成首屏构图、版块结构、字体、配色和动效建议。
+- 用真实浏览器检查页面（三种宽度），按“不许有装饰性俗套”的规则打回不合格的设计。
+- 需要图片时，从维基共享资源（Wikimedia Commons）、Openverse 等开放图库找可商用的真实图片，并在页面上标注来源。
+- 做完后让 AI 看自己的截图，找出最严重的三个问题并修改，最多三轮。
+- 也能做仪表盘、后台、设置页等应用界面（v2.1 起），并检查页面框架：标题、边距、留白。
+- 不限技术栈：HTML/CSS、React、Next.js、Vue、Svelte、Astro、Tailwind 都可以。
+
+## 怎么安装（Claude Code）
+
+压缩包 `taste-skill-campfire.zip` 解压后的结构：
+
+```
+skills/
+  design-taste-frontend/   （内含 SKILL.md、scripts、library、references、assets）
+README.md
+LICENSE
+```
+
+1. 到本仓库 [Releases](https://github.com/campfire-code/taste-skill/releases/latest) 下载 `taste-skill-campfire.zip` 并解压。
+2. 把 `skills/design-taste-frontend` 整个文件夹复制到 `~/.claude/skills/`（没有就新建）。
+   - macOS / Linux：`mkdir -p ~/.claude/skills && cp -R skills/design-taste-frontend ~/.claude/skills/`
+   - Windows：复制到 `C:\Users\你的用户名\.claude\skills\`
+3. 确认 `~/.claude/skills/design-taste-frontend/SKILL.md` 存在，重启 Claude Code。
+
+也可以用上游的插件命令（需要能访问 GitHub），在 Claude Code 里运行：
+
+```
+/plugin marketplace add Leonxlnx/taste-skill
+/plugin install taste-skill@taste-skill
+```
+
+Codex 的装法（上游写明）：`codex plugin marketplace add Leonxlnx/taste-skill`，再 `codex plugin add taste-skill@taste-skill`，装完新开一个会话。
+
+## 怎么用
+
+装好后直接说需求，技能会自动触发。示例说法：
+
+- “给我的咖啡店做一个官网首页，要有设计感，别像模板”
+- “这个页面看起来很像 AI 做的，帮我重新设计”
+- “做一个销售数据的后台仪表盘”
+
+注意：完整跑一遍大约要 30 到 45 分钟，会消耗几十万 token（上游原话），建议用额度充足的账号。
+
+## 前置条件
+
+- Node 22 或更新版本。
+- 电脑里装有 Chrome、Edge 或 Chromium（用来检查页面）。
+- 不需要任何 API 密钥；找图片时需要联网。
+
+## 和上游的区别
+
+只加了本段中文说明与打包（技能文件夹按上游安装名 `design-taste-frontend` 命名，去掉了评测文件），代码未改。
+
+---
+
+以下为上游原始说明（原文未改动）：
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/taste-skill-wordmark-dark.png" />
